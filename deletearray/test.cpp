@@ -30,8 +30,10 @@ int main()
 			break;
 		}
 	}	*/
-//要求抽掉几个就几个，取决于y
-	for(int y=0;y<3;y++)
+//要求抽掉几个就几个，取决于r
+	printf("please input the count of delete :");
+	scanf("%d",&r);
+	for(int y=0;y<r;y++)
 	{
 		printf("please input a number:");
 		scanf("%d",&m);
