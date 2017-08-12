@@ -1,0 +1,22 @@
+#include <STDIO.H>
+
+int main()
+{
+	double salary,bonus;
+	printf("please enter your salary:\n");
+	scanf("%lf",&salary);
+	if (salary<=100000)
+	{
+		bonus = salary * 0.1;
+	} 
+	else if (salary>100000 && salary<=200000)
+	{
+		bonus = (salary-100000) * 0.075 + 10000;
+	}
+	else if (salary>200000 )
+	{
+		bonus = (salary-200000) * 0.05 + 17500;
+	}
+	printf("%lf\n",bonus);
+	return 0;
+}
