@@ -1,0 +1,248 @@
+#include<iostream>
+#include<fstream>
+using namespace std;
+#include<string>
+#define N 100
+#define SIZE 20
+struct student                    //定义结构体来存储联系人的信息
+{
+	char name[SIZE];
+	char tel[SIZE];
+	char add[SIZE];
+	char pos[SIZE];
+	char Email[SIZE];
+};
+int creat(struct student *p,int n)      //创建通讯录
+{
+	int m,i=0;
+	cout<<"添加前的记录，共有:"<<n<<"个"<<endl;
+	cout<<"记录号"<<"\t"<<"姓名"<<"\t"<<"电话"<<"\t"<<"地址"<<"\t"<<"邮编"<<"\t"<<"邮箱"<<endl;
+	while((i<n)&&(strcmp(p->name," ")!=0))
+	{
+		cout<<" "<<i+1<<"\t\t"<<p->name<<"\t\t"<<p->tel<<"\t\t"<<p->add<<"\t\t"<<p->pos<<"\t\t"<<p->Email<<endl;
+		i++;
+		p++;
+	}
+	cout<<"请输入要添加的学生人数:";
+	cin>>m;
+    i=0;
+	while(i<m)
+	{
+		cout<<"**********************"<<endl;
+        cout<<"请输入第"<<i+1<<"个记录"<<endl;
+		cout<<"姓名:";  cin>>p->name;
+		cout<<"电话:";  cin>>p->tel;
+		cout<<"地址:";  cin>>p->add;
+		cout<<"邮编:";  cin>>p->pos;
+		cout<<"邮箱:";  cin>>p->Email;\
+	    cout<<"**********************"<<endl;
+		cout<<endl<<endl;
+		p++;
+		i++;
+	}
+	return m+n;
+}
+void print(struct student *p,int n)         //输出通讯录的信息
+{
+	int i=0;
+	if(i==n)
+		cout<<"************通信录中无联系人***********"<<endl;
+	else
+	{
+		cout<<"记录号"<<"\t"<<"姓名"<<"\t"<<"电话"<<"\t\t"<<"地址"<<"\t"<<"邮编"<<"\t"<<"邮箱"<<endl;
+		while(i<n)
+		{
+			cout<<" "<<i+1<<"\t"<<p->name<<"\t"<<p->tel<<"\t"<<p->add<<"\t"<<p->pos<<"\t"<<p->Email<<endl;
+			i++;
+			p++;
+		}
+	}
+}
+int add(struct student *p,int n)           //增加新的联系人
+{
+	int i=0;
+	char c;
+	struct student t,*q;
+	cout<<"添加前的记录:"<<endl;
+    cout<<"姓名"<<"\t"<<"电话"<<"\t\t"<<"地址"<<"\t"<<"邮编"<<"\t"<<"邮箱"<<endl;
+	q=p;
+	while(i<n)
+	{ 
+		cout<<q->name<<"\t"<<q->tel<<"\t"<<q->add<<"\t"<<q->pos<<"\t"<<q->Email<<endl;
+		i++;
+		q++;
+	}
+	do{
+		cout<<"请输入新记录的姓名:";  cin>>t.name;
+		cout<<"请输入新记录的电话:";  cin>>t.tel;
+		cout<<"请输入新记录的地址:";  cin>>t.add;
+		cout<<"请输入新记录的邮编:";  cin>>t.pos;
+		cout<<"请输入新记录的邮箱:";  cin>>t.Email;
+		for(i=0;i<n;i++)
+			if(strcmp(t.name,(p+i)->name)==0)
+			{
+				cout<<"姓名已存在,要重新输入吗(Y/N)?"<<endl;
+				cin>>c;
+				if(c=='n'||c=='N')    //当用户输入N时，跳出增加操作
+				 break;
+				
+			}
+			if(i==n)
+			{
+				*(p+i)=t;
+				cout<<"添加后的记录为:"<<endl;
+				cout<<"姓名"<<"\t"<<"电话"<<"\t\t"<<"地址"<<"\t"<<"邮编"<<"\t"<<"邮箱"<<endl;
+				for(i=0;i<n+1;i++)
+				{
+					cout<<(p+i)->name<<"\t"<<(p+i)->tel<<"\t"<<(p+i)->add<<"\t"<<(p+i)->pos<<"\t"<<(p+i)->Email<<endl;
+				}
+			}
+	}while(c=='y'||c=='Y');
+	return n+1;
+}
+int del(struct student *p,int n)            // 删除联系人
+{
+    int i=0,x;
+    if(i==n)
+		cout<<"************通信录中无联系人***********"<<endl;
+	else
+	{
+		char name[10];
+		cout<<"请输入要删除的联系人的姓名:"; cin>>name;
+		for(i=0;i<n;i++)
+			if(strcmp(name,(p+i)->name)==0)
+				break;
+		if(i<n)
+		{
+				for(x=i;x<N-1;x++)
+					p[x]=p[x+1];     //依次将后面的联系人资料往前移
+				cout<<"删除后的记录:"<<endl;
+				cout<<"姓名"<<"\t"<<"电话"<<"\t\t"<<"地址"<<"\t"<<"邮编"<<"\t"<<"邮箱"<<endl;
+				for(i=0;i<n-1;i++)
+					cout<<p[i].name<<"\t"<<p[i].tel<<"\t"<<p[i].add<<"\t"<<p[i].pos<<"\t"<<p[i].Email<<endl;
+			    return n-1;
+		}
+	    else
+		  cout<<"********无此联系人*********"<<endl;
+	}
+	return n;
+	
+}
+
+void search(struct student *p,int n)             //查找联系人
+{
+	int i=0;
+	char name[20];
+	if(i==n)
+		cout<<"************通信录中无联系人***********"<<endl;
+    else 
+	{
+		cout<<"请输入要查找的联系人的姓名:"; cin>>name;
+	    for(i=0;i<n;i++)
+		if(strcmp(name,(p+i)->name)==0)
+		{
+			cout<<p[i].name<<"\t"<<p[i].tel<<"\t"<<p[i].add<<"\t"<<p[i].pos<<"\t"<<p[i].Email<<endl;
+			break;
+		}
+		if(i==n)
+			cout<<"********无此联系人*********"<<endl;
+	}
+}
+
+void sort(struct student *p,int n)             //对联系人排序
+{
+	struct student temp;
+	int i=0,j;
+	if(i==n)
+		cout<<"*******通信录中没有联系人可排序*******"<<endl;
+	else
+	{
+	  for(i=0;i<n;i++)
+	  {
+		 for(j=0;j<n-i;j++)
+		 {
+			if(strcmp(p[j].name,p[j+1].name)>0)
+			{
+				temp=p[j];
+				p[j]=p[j+1];
+				p[j+1]=temp;
+			}
+		 }
+	  }
+	
+	 cout<<"排序后的结果为:"<<endl;
+     cout<<"姓名"<<"\t"<<"电话"<<"\t\t"<<"地址"<<"\t"<<"邮编"<<"\t"<<"邮箱"<<endl; 
+	 for(i=0;i<n;i++)
+         cout<<p[i].name<<"\t"<<p[i].tel<<"\t"<<p[i].add<<"\t"<<p[i].pos<<"\t"<<p[i].Email<<endl;
+	}
+}
+void output_datafile(struct student *p,int n)               //输出到文件
+{
+    fstream iofile;
+	iofile.open("D:\\student.txt",ios::out);
+	for(int i=0;i<n;i++)
+		iofile<<p[i].name<<"\t"<<p[i].tel<<"\t"<<p[i].add<<"\t"<<p[i].pos<<"\t"<<p[i].Email<<endl;
+    iofile.close();
+	cout<<"output file success!!!!!!"<<endl;
+	
+	
+}
+void datafile_screen(struct student *p,int n)        //从文件输出到屏幕
+{
+	fstream iofile;
+	iofile.open("D:\\student.txt",ios::in|ios::binary);
+	cout<<"姓名"<<"\t"<<"电话"<<"\t\t"<<"地址"<<"\t"<<"邮编"<<"\t"<<"邮箱"<<endl; 
+    iofile>>p->name;
+	while(!iofile.eof())
+	{
+		iofile>>p->tel>>p->add>>p->pos>>p->Email;
+		cout<<p->name<<"\t"<<p->tel<<"\t"<<p->add<<"\t"<<p->pos<<"\t"<<p->Email<<endl;
+		p++;
+        iofile>>p->name;
+	}
+	iofile.close();
+}
+void function(void)
+{
+	struct student record[N];
+	int total=0;
+	int x;
+	cout<<"\t\t************************************"<<endl;
+	cout<<"\t\t          欢迎登陆通信录管理系统    "<<endl;
+	cout<<endl;
+	cout<<"\t\t      1 创建联系人           2 输出通信录"<<endl; 
+	cout<<"\t\t      3 增加联系人           5 查找联系人  "<<endl;
+	cout<<"\t\t                4 删除联系人    "<<endl;
+	cout<<"\t\t               6 排序          "<<endl;
+	cout<<"\t\t              7 输入到文件   "<<endl;
+	cout<<"\t\t             8 从文件输出到屏幕"<<endl;
+	cout<<"\t\t            9 退出             "<<endl;
+	cout<<"\t\t************************************"<<endl;
+	do{
+		cout<<"******************"<<endl;
+		cout<<"请输入你的选择:";
+        cin>>x;
+	    cout<<"******************"<<endl;
+		switch(x)
+		{
+		case 1: total=creat(record,total);break;
+		case 2: print(record,total);      break;
+		case 3: total=add(record,total);  break;
+		case 4: total=del(record,total);  break;
+		case 5: search(record,total);     break;
+		case 6: sort(record,total);       break;
+		case 7: output_datafile(record,total);break;
+		case 8: datafile_screen(record,total);break;
+		case 9: 
+			cout<<"\t\t************************************"<<endl;
+	cout<<"\t\t          谢谢使用通信录管理系统    "<<endl; 
+	cout<<"\t\t                 再见!!!!!          "<<endl;
+    cout<<"\t\t************************************"<<endl;
+			exit(0);
+		}
+	}while(1);
+}
+void main()
+{
+	function();
+}
