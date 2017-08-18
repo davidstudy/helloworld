@@ -268,9 +268,10 @@ void CSheet_testDlg::OnButton2()
 	book.AttachDispatch( lpDisp );
 	sheets=book.GetSheets();
 	sheet=sheets.GetItem(COleVariant((short)1));
-	range=sheet.GetRange(COleVariant("A1"),COleVariant("A1"));
+	range=sheet.GetRange(COleVariant("C8"),COleVariant("C8"));
 	COleVariant rValue;
-	rValue=COleVariant("002,222,21564,54");
+
+	rValue=COleVariant(range.GetValue(vtMissing));
 	rValue.ChangeType(VT_BSTR);
 	this->MessageBox(CString(rValue.bstrVal));
 	
@@ -278,3 +279,4 @@ void CSheet_testDlg::OnButton2()
 	app.Quit();
 
 }
+
