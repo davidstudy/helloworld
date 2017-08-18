@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "sheet_test.h"
+#include "comutil.h"
 #include "sheet_testDlg.h"
 #include "excel.h"
 
@@ -84,6 +85,7 @@ BEGIN_MESSAGE_MAP(CSheet_testDlg, CDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BUTTON1, OnButton1)
+	ON_BN_CLICKED(IDC_BUTTON2, OnButton2)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -208,5 +210,71 @@ void CSheet_testDlg::OnButton1()
 	app.SetVisible(TRUE);
 	app.SetUserControl(TRUE);
 	
+
+}
+
+void CSheet_testDlg::OnButton2() 
+{
+	// TODO: Add your control notification handler code here
+	_Application app; 
+	Workbooks books;
+	_Workbook book;
+	Worksheets sheets;
+	_Worksheet sheet;
+	Range range;
+	LPDISPATCH lpDisp;  //接口指针
+	COleVariant covOptional((long)DISP_E_PARAMNOTFOUND, VT_ERROR); 
+	if( !app.CreateDispatch("Excel.Application") ){
+		this->MessageBox("无法创建Excel应用！");
+		return;
+	}
+	
+	books=app.GetWorkbooks();
+
+//	Workbooks.Open("m1.xls");
+// 	lpDisp = m_oWorkBooks.Open( FilePathName, 
+// 		43                               _variant_t(vtMissing), 
+// 		44                               _variant_t(vtMissing),
+// 		45                               _variant_t(vtMissing),
+// 		46                               _variant_t(vtMissing),
+// 		47                               _variant_t(vtMissing),
+// 		48                               _variant_t(vtMissing),
+// 		49                               _variant_t(vtMissing),
+// 		50                               _variant_t(vtMissing),
+// 		51                               _variant_t(vtMissing),
+// 		52                               _variant_t(vtMissing),
+// 		53                               _variant_t(vtMissing),
+// 		54                               _variant_t(vtMissing),
+// 		55                               _variant_t(vtMissing),
+// 		56                               _variant_t(vtMissing) );
+	CString strFilePath;
+	strFilePath ="C:\\Users\\David\\Desktop\\m1.xls";
+	lpDisp = books.Open( strFilePath, 
+					   _variant_t(vtMissing), 
+					   _variant_t(vtMissing),
+					   _variant_t(vtMissing),
+					   _variant_t(vtMissing),
+					   _variant_t(vtMissing),
+					   _variant_t(vtMissing),
+					   _variant_t(vtMissing),
+					   _variant_t(vtMissing),
+					   _variant_t(vtMissing),
+					   _variant_t(vtMissing),
+					   _variant_t(vtMissing),
+					   _variant_t(vtMissing),
+					   _variant_t(vtMissing),
+					   _variant_t(vtMissing) );
+
+	book.AttachDispatch( lpDisp );
+	sheets=book.GetSheets();
+	sheet=sheets.GetItem(COleVariant((short)1));
+	range=sheet.GetRange(COleVariant("A1"),COleVariant("A1"));
+	COleVariant rValue;
+	rValue=COleVariant("002,222,21564,54");
+	rValue.ChangeType(VT_BSTR);
+	this->MessageBox(CString(rValue.bstrVal));
+	
+	book.SetSaved(TRUE);
+	app.Quit();
 
 }
