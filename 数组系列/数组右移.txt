@@ -1,0 +1,16 @@
+//Êý×éÑ­»·ÓÒÒÆ
+		int N=length;
+		x=x%N ;  
+		while(x--)  
+		{  
+			double t=src[N-1];  
+			for(int i=N-1;i>0;i--)  
+			{  
+				src[i]=src[i-1];  
+			}  
+			src[0]=t;  
+		}
+		for(i=0;i<N;i++)
+		{
+			des[i]=src[i];
+		}
