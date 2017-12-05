@@ -1,0 +1,76 @@
+#define TheFirstYear        0.0414
+#define TheSecondYear       0.0468
+#define TheThirdYear        0.0540     
+#define TheFifthYear        0.0585
+#define huoqi				0.0072
+
+#include <stdio.h>
+int main()
+{
+	int a=0;
+	double b=0.0;
+	double sum=0.0;
+	for(int j=1;j<=5;j++)
+	{
+		printf("输入金额：");
+		scanf("%lf",&b);
+		switch (j)
+		{
+		case 1:
+			{
+				for(int i=0;i<5;i++)
+				{
+					b=(1+TheFifthYear)*b;
+				}
+				sum=b;
+				break;
+			}
+		case 2:
+			{	
+				for(int i=0;i<2;i++)
+				{
+					b=(1+TheSecondYear)*b;
+				}
+				for(int k=0;k<3;k++)
+				{
+					b=(1+TheThirdYear)*b;
+				}
+				sum=b;
+				break;
+			}
+		case 3:
+			{
+				for(int i=0;i<3;i++)
+				{
+					b=(1+TheThirdYear)*b;
+				}
+				for(int k=0;k<2;k++)
+				{
+					b=(1+TheSecondYear)*b;
+				}
+				sum=b;
+				break;
+			}
+		case 4:
+			{
+				for(int i=0;i<5;i++)
+				{
+					b=(1+TheFirstYear)*b;
+				}
+				sum=b;
+				break;
+			}
+		case 5:
+			{
+				for(int i=0;i<20;i++)
+				{
+					b=(1+huoqi)*b;
+				}
+				sum=b;
+				break;
+			}
+		}
+	printf("本息和：%lf\n",sum);
+	}
+	return 0;
+}
