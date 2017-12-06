@@ -1,0 +1,77 @@
+#include <stdio.h>
+int main()
+{
+
+// 	char b[6];
+// 	char c[6]={'C','h','i','n','a'};
+// 	for(int i=0;i<5;i++)
+// 	{
+// 		b[i]=getchar();
+// 		c[i]=c[i]+4;
+// 	//	printf("%c",c[i]);
+// 	}
+// 	for(int j=0;j<5;j++)
+// 	{
+// 		putchar(b[j]);
+// 		printf("%d",b[j]);
+// 	}
+	// 	printf("\n");
+//九九乘法表
+// 	int k[10][10];
+// 	for (int i=1;i<10;i++)
+// 	{
+// 		for (int j=0;j<i;j++)
+// 		{
+// 			k[i][j]=i;
+// 			printf("%dx%d=%2d  ",k[i][j],k[i][j],k[i][j]*k[i][j]);
+// 		}
+// 		printf("\n");
+// 	}
+//杨辉三角
+// 		int a[10][10];
+// 		int i,j;
+// 		for(i=0;i<10;i++)
+// 		{
+// 			a[i][0]=1;
+// 			a[i][i]=1;
+// 		}
+// 		for(i=2;i<10;i++)
+// 		{
+// 			for(j=1;j<i;j++)
+// 			{
+// 				a[i][j]=a[i-1][j-1]+a[i-1][j];
+// 			}
+// 		}
+// 		for(i=0;i<10;i++)
+// 		{
+// 			for(j=0;j<=i;j++)
+// 				printf("%-3d  ",a[i][j]);
+// 			printf("\n");
+// 		}
+//新杨辉三角
+	int i=0;
+	int j=0;
+	int k=0;
+	int n=0;
+	int a[20][20];
+	printf("显示行数：");
+	scanf("%d",&n);
+	printf("结果如下：\n");
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<i+1;j++)
+		{
+			if (i==0 || j==0 || i==j)
+			{
+				a[i][j]=1;
+			} 
+			else
+			{
+				a[i][j]=a[i-1][j]+a[i-1][j-1];
+			}
+			printf("%-3d",a[i][j]);
+		}
+			printf("\n");
+	}
+	return 0;
+}
