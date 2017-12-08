@@ -56,5 +56,10 @@ void CProgress1TDlg::OnButton1Ppp()
 {
 	// TODO: Add your control notification handler code here
 	CString StrKK="16541";
-	GetDlgItem(IDC_STATIC_SHOW)->SetWindowText(StrKK);
+
+	CString str_A;  
+	GetDlgItem(IDC_EDIT_A)->GetWindowText(str_A); 
+
+
+	GetDlgItem(IDC_STATIC_SHOW)->SetWindowText(str_A);
 }

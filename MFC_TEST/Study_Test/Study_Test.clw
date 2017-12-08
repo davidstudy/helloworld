@@ -19,8 +19,8 @@ Class7=CStudy_TestDlg
 
 ResourceCount=4
 Resource1=IDD_STUDY_TEST_DIALOG
-Resource2=IDD_DIALOG_LIST
-Resource3=IDD_ABOUTBOX
+Resource2=IDD_ABOUTBOX
+Resource3=IDD_DIALOG_LIST
 Class8=CProgress1TDlg
 Resource4=IDD_DIALOG1_PROGRESS
 
