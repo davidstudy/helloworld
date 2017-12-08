@@ -94,6 +94,10 @@ SOURCE=.\ListDlg.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\Progress1TDlg.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\StdAfx.cpp
 # ADD CPP /Yc"stdafx.h"
 # End Source File
@@ -116,6 +120,10 @@ SOURCE=.\Study_TestDlg.cpp
 # Begin Source File
 
 SOURCE=.\ListDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Progress1TDlg.h
 # End Source File
 # Begin Source File
 
