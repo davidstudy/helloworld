@@ -1,0 +1,41 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: SIN - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/SIN.res" /d "_DEBUG" /d "_AFXDLL" "C:\Users\David\Desktop\helloworld\经典例子\SIN\SIN.rc"" 
+Creating temporary file "C:\Users\David\AppData\Local\Temp\RSP12B0.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/SIN.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Users\David\Desktop\helloworld\经典例子\SIN\SIN.cpp"
+"C:\Users\David\Desktop\helloworld\经典例子\SIN\SINDlg.cpp"
+]
+Creating command line "cl.exe @C:\Users\David\AppData\Local\Temp\RSP12B0.tmp" 
+Creating temporary file "C:\Users\David\AppData\Local\Temp\RSP12B1.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/SIN.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Users\David\Desktop\helloworld\经典例子\SIN\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\Users\David\AppData\Local\Temp\RSP12B1.tmp" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:yes /pdb:"Debug/SIN.pdb" /debug /machine:I386 /out:"Debug/SIN.exe" /pdbtype:sept  ".\Debug\SIN.obj" ".\Debug\SINDlg.obj" ".\Debug\StdAfx.obj" ".\Debug\SIN.res" "
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+SIN.cpp
+SINDlg.cpp
+C:\Users\David\Desktop\helloworld\经典例子\SIN\SINDlg.cpp(186) : warning C4101: 'doo' : unreferenced local variable
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+SIN.exe - 0 error(s), 1 warning(s)
+</pre>
+</body>
+</html>
