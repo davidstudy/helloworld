@@ -15,7 +15,7 @@ class CCommunication : public CDialog
 // Construction
 public:
 	CCommunication(CWnd* pParent = NULL);   // standard constructor
-
+	int button_click;
 // Dialog Data
 	//{{AFX_DATA(CCommunication)
 	enum { IDD = IDD_DIALOG_COMUNICATION };
@@ -36,6 +36,7 @@ protected:
 	// Generated message map functions
 	//{{AFX_MSG(CCommunication)
 	afx_msg void OnButtonCreate();
+	virtual BOOL OnInitDialog();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

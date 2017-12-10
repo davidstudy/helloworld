@@ -13,7 +13,12 @@ static char THIS_FILE[] = __FILE__;
 
 /////////////////////////////////////////////////////////////////////////////
 // CCommunication dialog
-
+struct student
+{
+	CString name;
+	CString school_number;
+	CString sex;
+}stu_info[20];
 
 CCommunication::CCommunication(CWnd* pParent /*=NULL*/)
 	: CDialog(CCommunication::IDD, pParent)
@@ -44,10 +49,29 @@ END_MESSAGE_MAP()
 
 void CCommunication::OnButtonCreate() 
 {	
-	CString str_A,str_B,str_C,str_Informaition;  
+	CString str_A,str_B,str_C,str_Informaition,str_Informaition1;  
+	str_Informaition="";
 	GetDlgItem(IDC_EDIT_NAME)->GetWindowText(str_A); 	
 	GetDlgItem(IDC_EDIT_SCHOOL_NUMBER)->GetWindowText(str_B); 	
 	GetDlgItem(IDC_EDIT_SEX)->GetWindowText(str_C); 	
-	str_Informaition=str_A+"\n"+str_B+"\n"+str_C;
-	GetDlgItem(IDC_STATIC_INFORMATION)->SetWindowText(str_Informaition);	
+	stu_info[button_click].name=str_A;
+	stu_info[button_click].school_number=str_B;
+	stu_info[button_click].sex=str_C;
+	for (int i=0;i<=button_click;i++)
+	{
+		str_Informaition1=stu_info[i].name+"\n"+stu_info[i].school_number+"\n"+stu_info[i].sex+"\n";
+		str_Informaition=str_Informaition+str_Informaition1;
+	}
+	GetDlgItem(IDC_STATIC_INFORMATION)->SetWindowText(str_Informaition);
+	button_click++;
+}
+
+BOOL CCommunication::OnInitDialog() 
+{
+	CDialog::OnInitDialog();
+	
+	// TODO: Add extra initialization here
+	button_click=0;
+	return TRUE;  // return TRUE unless you set the focus to a control
+	              // EXCEPTION: OCX Property Pages should return FALSE
 }
