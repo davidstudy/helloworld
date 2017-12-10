@@ -54,16 +54,48 @@ void CCommunication::OnButtonCreate()
 	GetDlgItem(IDC_EDIT_NAME)->GetWindowText(str_A); 	
 	GetDlgItem(IDC_EDIT_SCHOOL_NUMBER)->GetWindowText(str_B); 	
 	GetDlgItem(IDC_EDIT_SEX)->GetWindowText(str_C); 	
-	stu_info[button_click].name=str_A;
-	stu_info[button_click].school_number=str_B;
-	stu_info[button_click].sex=str_C;
+	stu_info[button_click].name=str_A+"\n";
+	stu_info[button_click].school_number=str_B+"\n";
+	stu_info[button_click].sex=str_C+"\n";
 	for (int i=0;i<=button_click;i++)
 	{
-		str_Informaition1=stu_info[i].name+"\n"+stu_info[i].school_number+"\n"+stu_info[i].sex+"\n";
+		str_Informaition1=stu_info[i].name+stu_info[i].school_number+stu_info[i].sex;
 		str_Informaition=str_Informaition+str_Informaition1;
 	}
 	GetDlgItem(IDC_STATIC_INFORMATION)->SetWindowText(str_Informaition);
-	button_click++;
+	//////////////////////////////////
+	CStdioFile file;
+	if(file.Open(_T("D:\\testtxt.txt"),CFile::typeText|CFile::modeCreate|CFile::modeReadWrite))		
+	{
+		for(int j=0; j<20; j++)
+		{
+			file.WriteString(stu_info[j].name);
+			file.WriteString(stu_info[j].school_number);
+			file.WriteString(stu_info[j].sex);
+		}  
+		file.Close();
+	}
+//////////////////////////////////////////
+	/*
+	char* pszFileName="D:\\myfile.txt";	
+	CStdioFile myFile;	
+	CFileException fileException;	
+	if(myFile.Open(pszFileName,CFile::typeText|CFile::modeCreate|CFile::modeReadWrite),&fileException)		
+	{	
+		myFile.WriteString("µÚ1ÐÐ\n");	
+		CString strOrder;
+		strOrder.Format("%d,%.3f",6116,8228.838);
+		myFile.WriteString(strOrder);	
+	}	
+	else	
+	{	
+		TRACE("Can't open file %s,error=%u\n",pszFileName,fileException.m_cause);	
+	}
+	myFile.Close();
+	*/
+
+//////////////////////////////////
+button_click++;
 }
 
 BOOL CCommunication::OnInitDialog() 
