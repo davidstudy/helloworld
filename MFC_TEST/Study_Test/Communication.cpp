@@ -35,9 +35,19 @@ void CCommunication::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CCommunication, CDialog)
 	//{{AFX_MSG_MAP(CCommunication)
-		// NOTE: the ClassWizard will add message map macros here
+	ON_BN_CLICKED(IDC_BUTTON_CREATE, OnButtonCreate)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // CCommunication message handlers
+
+void CCommunication::OnButtonCreate() 
+{	
+	CString str_A,str_B,str_C,str_Informaition;  
+	GetDlgItem(IDC_EDIT_NAME)->GetWindowText(str_A); 	
+	GetDlgItem(IDC_EDIT_SCHOOL_NUMBER)->GetWindowText(str_B); 	
+	GetDlgItem(IDC_EDIT_SEX)->GetWindowText(str_C); 	
+	str_Informaition=str_A+"\n"+str_B+"\n"+str_C;
+	GetDlgItem(IDC_STATIC_INFORMATION)->SetWindowText(str_Informaition);	
+}
