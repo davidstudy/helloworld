@@ -84,6 +84,7 @@ BEGIN_MESSAGE_MAP(CStudy_TestDlg, CDialog)
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BUTTON_LIST_TEST, OnButtonListTest)
 	ON_BN_CLICKED(IDC_BUTTON1, OnButton1)
+	ON_BN_CLICKED(IDC_BUTTON2, OnButton2)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -121,6 +122,7 @@ BOOL CStudy_TestDlg::OnInitDialog()
 	
 	m_ListDlg.Create(IDD_DIALOG_LIST);
 	m_progressDlg1.Create(IDD_DIALOG1_PROGRESS);
+	m_CommunicationDlg.Create(IDD_DIALOG_COMUNICATION);
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
 
@@ -183,4 +185,10 @@ void CStudy_TestDlg::OnButton1()
 {
 	// TODO: Add your control notification handler code here
 	m_progressDlg1.ShowWindow(SW_SHOW);
+}
+
+void CStudy_TestDlg::OnButton2() 
+{
+	// TODO: Add your control notification handler code here
+	m_CommunicationDlg.ShowWindow(SW_SHOW);
 }

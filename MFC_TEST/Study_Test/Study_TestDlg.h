@@ -9,6 +9,7 @@
 #endif // _MSC_VER > 1000
 #include "ListDlg.h"
 #include "Progress1TDlg.h"
+#include "Communication.h"
 /////////////////////////////////////////////////////////////////////////////
 // CStudy_TestDlg dialog
 
@@ -19,6 +20,7 @@ public:
 	CStudy_TestDlg(CWnd* pParent = NULL);	// standard constructor
 	CListDlg m_ListDlg;
 	CProgress1TDlg m_progressDlg1;
+	CCommunication m_CommunicationDlg;
 // Dialog Data
 	//{{AFX_DATA(CStudy_TestDlg)
 	enum { IDD = IDD_STUDY_TEST_DIALOG };
@@ -43,6 +45,7 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnButtonListTest();
 	afx_msg void OnButton1();
+	afx_msg void OnButton2();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
