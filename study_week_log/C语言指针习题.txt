@@ -1,0 +1,113 @@
+#include "stdio.h"
+#include "iostream.h"
+#include  <string>
+/*void func(int *a,int *b,int*c)//compare 3
+{
+	int temp=0;
+	if (*a>=*b)
+	{
+		if (*a>=*c)
+		{
+			*a=*a;
+			if (*b>=*c)
+			{
+				*b=*b;
+				*c=*c;
+			}
+			else
+			{
+				temp=*c;
+				*c=*b;
+				*b=temp;
+			}
+		}
+		else 
+		{
+			*a=*c;
+		}
+	}
+	else 
+	{
+		if (*b>=*c)
+		{
+			*a=*b;
+		}
+		else 
+		{
+			*a=*c;
+		}
+	}
+}*/
+
+/*
+void comparefun(int *a,int *b)
+{
+	int temp=0;
+	if (*a>=*b)
+	{
+		
+	}
+	else
+	{
+		temp=*b;
+		*b=*a;
+		*a=temp;
+	}
+}
+
+int main()
+{
+	int x=0;
+	int y=0;
+	int z=0;
+	cout<<"please input your number:"<<endl;
+	cin>>x>>y>>z;
+	cout<<"x:"<<x<<endl;
+	cout<<"y:"<<y<<endl;
+	cout<<"z:"<<z<<endl;
+//	func(&x,&y,&z);
+	comparefun(&x,&y);
+	comparefun(&x,&z);
+	comparefun(&y,&z);
+	cout<<"now:"<<endl;
+	cout<<"x:"<<x<<endl;
+	cout<<"y:"<<y<<endl;
+	cout<<"z:"<<z<<endl;
+	return 0;
+}*/
+
+/*
+void comparefun(char *a,char *b)
+{
+	char temp[5];
+	int cc=strcmp(a,b);
+	if (cc<0)
+	{
+		strcpy(temp,b);
+		strcpy(b,a);
+		strcpy(a,temp);
+	}
+
+}
+
+int main()
+{
+	char x[5];
+	char y[5];
+	char z[5];
+	cout<<"please input your number:"<<endl;
+	cin>>x>>y>>z;
+	cout<<"x:"<<x<<endl;
+	cout<<"y:"<<y<<endl;
+	cout<<"z:"<<z<<endl;
+	//	func(&x,&y,&z);
+	comparefun(x,y);
+	comparefun(x,z);
+	comparefun(y,z);
+	cout<<"now:"<<endl;
+	cout<<"x:"<<x<<endl;
+	cout<<"y:"<<y<<endl;
+	cout<<"z:"<<z<<endl;
+	return 0;
+}
+*/
