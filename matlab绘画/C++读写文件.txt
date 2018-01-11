@@ -1,0 +1,10 @@
+	int length=1000;
+	double buffer[10000];
+	for(int i=0;i<10000;i++)
+	{
+		buffer[i]=sin(i);
+	}
+	FILE *fp; 
+	fp=fopen("test1343.dat","wb");
+	fwrite(buffer, length * sizeof(int),1,fp);
+	fclose(fp);
